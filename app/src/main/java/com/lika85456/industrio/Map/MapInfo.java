@@ -4,8 +4,8 @@ package com.lika85456.industrio.Map;
  * Vytvoreno 15.05.2018 jako soucast Industrio.
  */
 public class MapInfo {
-	String id;
-	String name;
+	public String id;
+	public String name;
 	
 	public MapInfo(String id, String name){
 		this.id = id;
