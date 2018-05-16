@@ -4,38 +4,39 @@ package com.lika85456.industrio.Map;
  * Vytvoreno 15.05.2018 jako soucast Industrio.
  */
 public class BackgroundTileInfo {
-	public static final byte WATER       =   0;
-	public static final byte GRASS       =   1;
-	public static final byte DIRT        =   2;
-	public static final byte STONE       =   3;
-	public static final byte STONE_BLOCK =   4;
-	public static final byte IRON_ORE    =   5;
-	public static final byte COAL_ORE    =   6;
 	
-	public boolean walkable;
+	public final boolean walkable;
+	public final boolean freeToBuild;
 	
 	public BackgroundTileInfo(byte tileType){
 		switch(tileType){
-			case WATER:
+			case BackgroundTileType.WATER:
 				walkable = false;
+				freeToBuild = true;
 				break;
-			case GRASS:
+			case BackgroundTileType.GRASS:
 				walkable = true;
+				freeToBuild = true;
 				break;
-			case DIRT:
+			case BackgroundTileType.DIRT:
 				walkable = true;
+				freeToBuild = true;
 				break;
-			case STONE:
+			case BackgroundTileType.STONE:
 				walkable = true;
+				freeToBuild = true;
 				break;
-			case STONE_BLOCK:
+			case BackgroundTileType.STONE_BLOCK:
 				walkable = false;
+				freeToBuild = false;
 				break;
-			case IRON_ORE:
+			case BackgroundTileType.IRON_ORE:
 				walkable = true;
+				freeToBuild = true;
 				break;
-			case COAL_ORE:
+			case BackgroundTileType.COAL_ORE:
 				walkable = true;
+				freeToBuild = true;
 				break;
 			default:
 				throw new IllegalArgumentException("Invalid background tile type: " + String.valueOf(tileType));
