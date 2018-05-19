@@ -9,11 +9,11 @@ public class MapInfo {
 	public final String[] chunks;
 	public final int chunkCount;
 	
-	public MapInfo(String id, String name, String[] chunks, int chunkCount){
+	public MapInfo(String id, String name, String[] chunks){
 		this.id = id;
 		this.name = name;
 		this.chunks = chunks;
-		this.chunkCount = chunkCount;
+		chunkCount = chunks == null?0:chunks.length;
 	}
 	
 	public MapInfo(MapInfo info){
