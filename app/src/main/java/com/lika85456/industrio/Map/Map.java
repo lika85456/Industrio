@@ -1,5 +1,7 @@
 package com.lika85456.industrio.Map;
 
+import com.lika85456.industrio.StorageManager;
+
 import java.util.*;
 
 /**
@@ -34,7 +36,7 @@ public class Map {
 		return new Map(new MapInfo(longToString(timeStamp), name, null, 0));
 	}
 	public static MapInfo[] getAvailableMaps() {
-		
+		byte[] maps = StorageManager.loadBytes("maps.dat");
 		
 		return null; //zadny StorageManager, zadne mapy
 		//TODO: ziskej seznam map z "maps.dat" <-- prosim nezabirat nazev

@@ -5,11 +5,11 @@ package com.lika85456.industrio;
 
 public class StorageManager {
 	
-	static byte[] loadBytes(String file){
+	public static byte[] loadBytes(String file){
 		return null;
 	}
 	
-	static void saveBytes(String file, byte[] data){
+	public static void saveBytes(String file, byte[] data){
 	
 	}
 	
