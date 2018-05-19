@@ -31,13 +31,11 @@ public class Map {
 	
 	public static Map createNewMap(String name){
 		long timeStamp = System.currentTimeMillis();
-		String newId = "";
-		for(int i = 0; i < 16; i++)
-			newId += (char)((timeStamp >> (i * 4)) & 0xF + (int)'A');
-		return new Map(new MapInfo(newId, name, null, 0));
+		return new Map(new MapInfo(longToString(timeStamp), name, null, 0));
 	}
-	
 	public static MapInfo[] getAvailableMaps() {
+		
+		
 		return null; //zadny StorageManager, zadne mapy
 		//TODO: ziskej seznam map z "maps.dat" <-- prosim nezabirat nazev
 	}
@@ -63,6 +61,13 @@ public class Map {
 		return (byte)255;
 	}
 	
+	private static String longToString(long number){
+		String toReturn = "";
+		for(int i = 0; i < 16; i++)
+			toReturn += (char)((number >> (i * 4)) & 0xF + (int)'A');
+		return toReturn;
+	}
+	
 	private class Chunk {
 		static final int CHUNK_SIZE = 64;
 		
@@ -75,7 +80,8 @@ public class Map {
 			this.x = x;
 			this.y = y;
 		}
-		public Chunk(String file, int x, int y){
+		public Chunk(int x, int y){
+			
 			//TODO: nacti se sam
 		}
 		
