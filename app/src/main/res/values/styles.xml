@@ -14,5 +14,8 @@
         <item name="android:windowFullscreen">true</item>
     </style>
 
+    <style name="uiButton" parent="Base.Widget.AppCompat.Button">
+        
+    </style>
 
 </resources>

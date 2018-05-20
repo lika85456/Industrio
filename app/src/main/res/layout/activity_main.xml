@@ -5,6 +5,33 @@
     android:layout_height="match_parent"
     tools:context=".Activity.MainActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="50dp"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/attack_button"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:layout_x="501dp"
+                android:layout_y="53dp"
+                android:antialias="false"
+                android:background="@drawable/attack_menu_button" />
+        </LinearLayout>
+
+    </LinearLayout>
+
     <com.lika85456.View.ZoomView
         android:layout_width="match_parent"
         android:layout_height="match_parent">

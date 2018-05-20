@@ -1,7 +1,5 @@
 package com.lika85456.industrio.Map;
 
-import com.lika85456.industrio.StorageManager;
-
 import java.util.List;
 
 /**
@@ -50,29 +48,31 @@ public class Map {
 		return new Map(new MapInfo(longToString(timeStamp), name, null));
 	}
 	public static MapInfo[] getAvailableMaps() {
-		byte[] mapsData = StorageManager.loadBytes("maps.dat");
+        //byte[] mapsData = StorageManager.loadBytes("maps.dat");
 
         //TODO make this return
 		return null;
 	}
-	private static MapInfo loadInfoFile(String id){
-		byte[] data = StorageManager.loadBytes(id + ".map");
-		String name = "";
-		String[] chunks = null;
-		int nameEndPos = 0;
-		
-		for(nameEndPos = 0; data[nameEndPos] + data[nameEndPos + 1] != 0; nameEndPos+=2){
-			name += (char)(data[nameEndPos] + data[nameEndPos + 1]);
-		}
-		
-		chunks = new String[(data.length  - nameEndPos + 2) / 8/*pls*/];
-		
-		for(int i = 0; i < (data.length  - nameEndPos + 2); i += 8){
+
+    /*private static MapInfo loadInfoFile(String id){
+        byte[] data = StorageManager.loadBytes(id + ".map");
+        String name = "";
+        String[] chunks = null;
+        int nameEndPos = 0;
+
+        for(nameEndPos = 0; data[nameEndPos] + data[nameEndPos + 1] != 0; nameEndPos+=2){
+            name += (char)(data[nameEndPos] + data[nameEndPos + 1]);
+        }
+
+        chunks = new String[(data.length  - nameEndPos + 2) / 8];
+
+        for(int i = 0; i < (data.length  - nameEndPos + 2); i += 8){
             //?
-		}
-		
-		return new MapInfo(id, name, chunks);
-	}
+        }
+
+        return new MapInfo(id, name, chunks);
+    }
+    */
 	private static String longToString(long number){
 		String toReturn = "";
         for (int i = 0; i < 16; i++) //jak rozeznáš long od intu v tý tvý struktuře? (moc to nechápu) (string = char můžeš mít 2 byte, jakýkoliv data)
@@ -115,9 +115,9 @@ public class Map {
 		
 		public byte[][] backGroundTiles;
 		public List<BuildingTile> buildingTiles;
-		public final int x;
-		public final int y;
-		public final String chunkId;
+        public int x;
+        public int y;
+        public String chunkId;//?
 		
 		public Chunk(byte[] chunkData, int x, int y){
 			this.x = x;
@@ -125,7 +125,7 @@ public class Map {
 			chunkId = intToString(x) + intToString(y);
 		}
 		public Chunk(int x, int y){
-			this(StorageManager.loadBytes(mapId + intToString(x) + intToString(y) + ".cnk"), x, y);
+            //this(StorageManager.loadBytes(mapId + intToString(x) + intToString(y) + ".cnk"), x, y);
 		}
 		public void save(){
 		
