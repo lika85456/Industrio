@@ -2,7 +2,7 @@ package com.lika85456.industrio.Map;
 
 import com.lika85456.industrio.StorageManager;
 
-import java.util.*;
+import java.util.List;
 
 /**
  * Vytvoreno 15.05.2018 jako soucast Industrio.
@@ -13,7 +13,7 @@ import java.util.*;
  *   - rada 64-bitovych id map
  *
  * - ?mapId?.map
- *   - jmeno mapy v 16-bitovych charech ukoncene 0x0000
+ *   - jmeno mapy v 16-bitovych charech ukoncene 0x0000 //tohle není úplně nejlepší způsob :D (stačí na začátek napsat jak je to velký a začít novou strukturu až po těch x bytech)
  *   - rada 32+32-bitovych id chunku
  *
  * - ?mapId??chunkId?.cnk
@@ -21,6 +21,7 @@ import java.util.*;
  *   - seznam staveb az do konce souboru
  */
 public class Map {
+
 	static final int CHUNK_CACHE_SIZE = 8;
 	
 	private String mapId;
@@ -50,7 +51,8 @@ public class Map {
 	}
 	public static MapInfo[] getAvailableMaps() {
 		byte[] mapsData = StorageManager.loadBytes("maps.dat");
-		
+
+        //TODO make this return
 		return null;
 	}
 	private static MapInfo loadInfoFile(String id){
@@ -66,14 +68,14 @@ public class Map {
 		chunks = new String[(data.length  - nameEndPos + 2) / 8/*pls*/];
 		
 		for(int i = 0; i < (data.length  - nameEndPos + 2); i += 8){
-			
+            //?
 		}
 		
 		return new MapInfo(id, name, chunks);
 	}
 	private static String longToString(long number){
 		String toReturn = "";
-		for(int i = 0; i < 16; i++)
+        for (int i = 0; i < 16; i++) //jak rozeznáš long od intu v tý tvý struktuře? (moc to nechápu) (string = char můžeš mít 2 byte, jakýkoliv data)
 			toReturn += (char)((number >> (i * 4)) & 0xF + (int)'A');
 		return toReturn;
 	}
