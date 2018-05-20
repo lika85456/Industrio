@@ -1,4 +1,4 @@
-package com.lika85456.industrio.Map;
+package com.lika85456.industrio.Game.Map;
 
 import java.util.List;
 

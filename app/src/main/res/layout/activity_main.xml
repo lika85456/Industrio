@@ -32,14 +32,14 @@
 
     </LinearLayout>
 
-    <com.lika85456.View.ZoomView
+    <com.lika85456.industrio.View.ZoomView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.lika85456.View.MapView
+        <com.lika85456.industrio.View.MapView
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
-    </com.lika85456.View.ZoomView>
+    </com.lika85456.industrio.View.ZoomView>
 
 
 </AbsoluteLayout>

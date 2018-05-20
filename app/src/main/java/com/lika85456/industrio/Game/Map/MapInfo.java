@@ -1,4 +1,4 @@
-package com.lika85456.industrio.Map;
+package com.lika85456.industrio.Game.Map;
 
 /**
  * Vytvoreno 15.05.2018 jako soucast Industrio.
@@ -8,7 +8,9 @@ public class MapInfo {
 	public final String name;
 	public final String[] chunks;
 	public final int chunkCount;
-	
+
+    //do mapInfo bych přidal nějakou statistiku, to znamená hours played,
+
 	public MapInfo(String id, String name, String[] chunks){
 		this.id = id;
 		this.name = name;
